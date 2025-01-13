@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="utf-8" />
+    <base target="_top">
+    <title>MyEasyTools</title>
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200">
+</head>
+
+<div id="loader"><a class="material-symbols-outlined rotate">progress_activity</a>Загрузка инструментов...</div>
+<iframe
+    id="application"
+    allow="fullscreen"
+    sandbox="allow-scripts allow-same-origin"
+    src="https://script.google.com/macros/s/AKfycbynSVK4oQHiLbLEp0-JjDNS8Cw4lt0EhR9RA6CvsEMyoxl29eKUVPRVyXLTVjvWuReUpw/exec"
+    style="display:none;"
+    onload="iframeLoaded()"
+></iframe>
+
+<script>
+    function iframeLoaded() {
+        var iframe = document.getElementById('application');
+        var loader = document.getElementById('loader');
+        loader.style.display = 'none';
+        iframe.style.display = 'block';
+    }
+</script>
+
+<style>
+    body {
+        background-color: black;
+    }
+
+    iframe {
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        border: none;
+    }
+
+    #loader {
+        font-weight: 600;
+        color: #ffffff;
+        background-color: #333;
+        text-align: center;
+        padding: 20px;
+        display: inline-flex;
+        column-gap: 0.5rem;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rotate {
+        animation: rotate 2s infinite;
+        overflow: clip;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg)
+        }
+
+        100% {
+            transform: rotate(360deg)
+        }
+    }
+</style>
